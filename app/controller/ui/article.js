@@ -8,7 +8,7 @@ class ArticleController extends Controller {
     const { id } = ctx.request.body;
 
     const { status, statusMessage, data } = await ctx.service.ui.article.content_getArticle(id);
-    const processedData = ctx.helper.articleProcess(data);
+    const processedData = ctx.helper.articleProcess(data)[0];
     ctx.helper.send(status, statusMessage, processedData);
   }
 

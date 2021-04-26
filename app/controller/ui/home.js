@@ -16,7 +16,8 @@ class HomeController extends Controller {
     const { ctx } = this;
 
     const { status, statusMessage, data } = await ctx.service.ui.home.routerLink_blogLink_getAuthorInfo();
-    ctx.helper.send(status, statusMessage, data);
+    const processedData = data[0];
+    ctx.helper.send(status, statusMessage, processedData);
   }
 
   async articleCard_updateClickCount() {

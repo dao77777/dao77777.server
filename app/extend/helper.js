@@ -12,12 +12,13 @@ module.exports = {
     };
   },
   articleProcess(article) {
-    return article.map(item => ({ ...item, timeCreate: item.timeCreate.getTime(), tagName: item.tagName === null ? [] : [ item.tagName ] })).reduce((pre, cur) => {
+    return article.map(item => ({ ...item, timeCreate: item.timeCreate.getTime(), tagNames: item.tagName === null ? [] : [ item.tagName ] })).reduce((pre, cur) => {
+      delete cur.tagName;
       const filterArr = pre.filter(item => item.id === cur.id);
       if (filterArr.length === 0) {
         return [ ...pre, cur ];
       }
-      return [ ...pre.map(item => (item.id === cur.id ? { ...item, tagName: [ ...item.tagName, ...cur.tagName ] } : item)) ];
+      return [ ...pre.map(item => (item.id === cur.id ? { ...item, tagNames: [ ...item.tagNames, ...cur.tagNames ] } : item)) ];
     }, []);
   },
 };
