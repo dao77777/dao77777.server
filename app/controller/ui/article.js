@@ -24,6 +24,7 @@ class ArticleController extends Controller {
           return;
         }
 
+        forest[0].nickname = forest[0].nickname ? forest[0].nickname.trim() === '' ? '匿名' : forest[0].nickname : '匿名';
         forest[0].timeCreate = forest[0].timeCreate.getTime();
         const rightForest = forest.slice(1);
         const childrenForest = forest[0].children;
