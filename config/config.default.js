@@ -30,13 +30,13 @@ module.exports = appInfo => {
     // database configuration
     client: {
       // host
-      host: '192.168.0.203',
+      host: '47.108.53.109', // production
       // port
       port: '3306',
       // username
       user: 'root',
       // password
-      password: 'root',
+      password: 'jcx13629787279==',
       // database
       database: 'blog',
     },
@@ -48,7 +48,10 @@ module.exports = appInfo => {
 
   // cors
   config.cors = {
-    origin: '*',
+    // dev
+    origin: 'http://localhost:3000',
+    // // prod
+    // origin: 'http://47.108.190.127:80',
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
   };
 
