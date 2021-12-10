@@ -30,13 +30,13 @@ module.exports = appInfo => {
     // database configuration
     client: {
       // host
-      host: '47.108.53.109', // production
+      host: '192.168.0.109', // production
       // port
       port: '3306',
       // username
       user: 'root',
       // password
-      password: 'jcx13629787279==',
+      password: 'root',
       // database
       database: 'blog',
     },
